@@ -97,11 +97,11 @@
 }
 
 + (StyledPolyline *) generatePolyline:(NSMutableArray *) path {
-    NSInteger numberOfSteps = path.count;
+    NSUInteger numberOfSteps = path.count;
     
     CLLocationCoordinate2D coordinates[numberOfSteps];
     
-    for (NSInteger index = 0; index < numberOfSteps; index++) {
+    for (NSUInteger index = 0; index < numberOfSteps; index++) {
         NSNumber *y = path[index][0];
         NSNumber *x = path[index][1];
         coordinates[index] = CLLocationCoordinate2DMake([x doubleValue], [y doubleValue]);
@@ -118,7 +118,7 @@
     
     
     CLLocationCoordinate2D exteriorMapCoordinates[exteriorPolygonCoordinates.count];
-    for (NSInteger index = 0; index < exteriorPolygonCoordinates.count; index++) {
+    for (NSUInteger index = 0; index < exteriorPolygonCoordinates.count; index++) {
         NSNumber *y = exteriorPolygonCoordinates[index][0];
         NSNumber *x = exteriorPolygonCoordinates[index][1];
         

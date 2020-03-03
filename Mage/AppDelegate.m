@@ -93,6 +93,10 @@
 	return YES;
 }
 
+- (BOOL) application:(UIApplication *)application shouldAllowExtensionPointIdentifier:(UIApplicationExtensionPointIdentifier)extensionPointIdentifier {
+    return extensionPointIdentifier != UIApplicationKeyboardExtensionPointIdentifier;
+}
+
 - (void) setupMageApplication: (UIApplication *) application {
     [[AFNetworkActivityIndicatorManager sharedManager] setEnabled:YES];
     

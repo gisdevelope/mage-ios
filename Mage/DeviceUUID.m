@@ -46,11 +46,11 @@ static NSString * const kKeyChainService = @"mil.nga.giat.mage.uuid";
 		[valueQuery setObject:(__bridge id)kSecClassGenericPassword forKey:(__bridge id)kSecClass];
 		[valueQuery setObject:(__bridge id)kCFBooleanTrue forKey:(__bridge id)kSecReturnData];
 		
-		CFTypeRef passwordDataRef = NULL;
-		OSStatus result = SecItemCopyMatching((__bridge CFDictionaryRef)valueQuery, &passwordDataRef);
+		CFTypeRef uuidDataRef = NULL;
+		OSStatus result = SecItemCopyMatching((__bridge CFDictionaryRef)valueQuery, &uuidDataRef);
 		if (result == noErr) {
-			NSData *passwordData = (__bridge_transfer NSData *)passwordDataRef;
-			uuidString = [[NSString alloc] initWithBytes:[passwordData bytes] length:[passwordData length] encoding:NSUTF8StringEncoding];
+			NSData *uuidData = (__bridge_transfer NSData *)uuidDataRef;
+			uuidString = [[NSString alloc] initWithBytes:[uuidData bytes] length:[uuidData length] encoding:NSUTF8StringEncoding];
 		}
 	}
 	
